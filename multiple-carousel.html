@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript Libraries</title>
+    <link rel="stylesheet" href="css/app.css">
+    <style>
+
+
+        .carousel-item img{
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            object-position: top;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container-fluid">
+
+    <div class="row ">
+        <div class="col-6">
+            <div class="">
+                <div id="aa" class="carousel slide " data-bs-ride="true">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="images/one.jpeg" alt="">
+                        </div>
+                        <div class="carousel-item ">
+                            <img src="images/two.jpeg" alt="">
+                        </div>
+                        <div class="carousel-item ">
+                            <img src="images/three.jpeg" alt="">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="">
+                <div id="bb" class="carousel slide carousel-fade " data-bs-ride="true">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <h1>Slide 1</h1>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aut consequuntur delectus deleniti ea ipsum iure laborum maiores molestiae nam odit, quae quas quasi quis quisquam velit voluptates! Animi, non.
+                            </p>
+                        </div>
+                        <div class="carousel-item ">
+                            <h1>Slide 2</h1>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi asperiores dolorem esse est et laborum natus nihil nobis, odio pariatur perspiciatis, quae qui quidem, quis quod sit suscipit ullam velit.
+                            </p>
+                        </div>
+                        <div class="carousel-item ">
+                            <h1>Slide 3</h1>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias in labore nulla recusandae? Atque autem beatae, delectus dolor et illo labore, libero molestiae nesciunt quidem repudiandae saepe, sapiente vero voluptate?
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="border p-3">
+                <button class="btn btn-primary" id="bothPrev">Prev</button>
+                <button class="btn btn-primary" id="bothNext">Next</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="node_modules/typed.js/lib/typed.min.js"></script>
+<script>
+
+    let myCarouselA = new bootstrap.Carousel("#aa")
+    let myCarouselB = new bootstrap.Carousel("#bb")
+
+    document.getElementById("bothNext").addEventListener("click",function (){
+        myCarouselA.next();
+        myCarouselB.next();
+    })
+    document.getElementById("bothPrev").addEventListener("click",function (){
+        myCarouselA.prev();
+        myCarouselB.prev();
+    })
+</script>
+
+</body>
+</html>

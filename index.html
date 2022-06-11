@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript Libraries</title>
+    <link rel="stylesheet" href="css/app.css">
+    <style>
+
+
+        .carousel-item img{
+            height: 300px;
+            object-fit: contain;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row min-vh-100 align-items-center">
+        <div class="col-12">
+            <div class="">
+                <h1>Hello <span class="typing"></span></h1>
+                <p>
+                    <span class="p"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row min-vh-100 align-items-center bg-light">
+        <div class="col-12">
+            <div class="">
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+                    <div class="carousel-indicators">
+                      </div>
+                    <div class="carousel-inner">
+
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="node_modules/typed.js/lib/typed.min.js"></script>
+<script>
+
+    let typed = new Typed(".typing",{
+        strings : ["Min Ga Lar <span class='text-primary display-3'>Par</span>","Students","Hello","haha 😄"],
+        typeSpeed : 60,
+        startDelay : 1000,
+        backSpeed : 60,
+        loop : true,
+        loopCount : 3
+    });
+
+    let typed2 = new Typed(".p",{
+        strings: ["abcd","efgh","ijkl"],
+        typeSpeed : 60,
+        startDelay : 1000,
+        backSpeed : 60,
+    })
+
+    let images = ["one.jpeg","two.jpeg","three.jpeg","six.jpeg"];
+
+    function createCarouselItem(src,isActive=false){
+        let div = document.createElement("div");
+        if(isActive === true){
+            div.classList.add("active")
+        }
+        div.classList.add("carousel-item");
+        div.innerHTML = `<img src="${src}" class="d-block w-100">`;
+        return div;
+    }
+
+    function createCarouselIndicator(isActive=false,index,targetId){
+        let btn = document.createElement("button");
+        btn.type = "button";
+        btn.setAttribute("data-bs-target",`#${targetId}`);
+        btn.setAttribute("data-bs-slide-to",index);
+        if(isActive){
+            btn.classList.add('active');
+        }
+        return btn;
+    }
+
+    images.forEach((image,index)=>{
+        let completeSrc = "images/"+image;
+        document
+            .querySelector(".carousel-inner")
+            .append(createCarouselItem(completeSrc,index===0));
+
+        document.querySelector(".carousel-indicators")
+            .append(createCarouselIndicator(index===0,index,"carouselExampleIndicators"))
+    })
+
+
+</script>
+
+</body>
+</html>
