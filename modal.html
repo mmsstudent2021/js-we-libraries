@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript Libraries</title>
+    <link rel="stylesheet" href="css/app.css">
+
+</head>
+<body>
+
+<div class="container">
+    <div class="row min-vh-100 align-items-center">
+        <div class="col-12">
+            <div class="">
+                <ul class="list-group">
+                    <li class="list-group-item list d-flex justify-content-between">
+                        Apple
+                        <button class="btn btn-danger btn-sm">Del</button>
+                    </li>
+                    <li class="list-group-item list d-flex justify-content-between">
+                        Orange
+                        <button class="btn btn-danger btn-sm">Del</button>
+                    </li>
+                    <li class="list-group-item list d-flex justify-content-between">
+                        Mango
+                        <button class="btn btn-danger btn-sm">Del</button>
+                    </li>
+                    <li class="list-group-item list d-flex justify-content-between">
+                        Banana
+                        <button class="btn btn-danger btn-sm">Del</button>
+                    </li>
+                    <li class="list-group-item list d-flex justify-content-between">
+                        Coconet
+                        <button class="btn btn-danger btn-sm">Del</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+<script>
+
+    document.querySelectorAll(".btn-danger").forEach(del=>{
+        del.addEventListener('click',function (e){
+            // console.log(e.target)
+
+            Swal.fire({
+                title: 'Are you sure to Delete?',
+                text: "မင်းဖျက်ပြီး ပြန်မရဘူးနော် ပြီးတော့မ မငိုနဲ့",
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: 'var(--bs-primary)',
+                cancelButtonColor: 'var(--bs-danger)',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                    e.target.parentElement.remove()
+
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    })
+
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Delete Successfully'
+                    });
+
+                    // Swal.fire(
+                    //     'Deleted!',
+                    //     'Your list has been deleted.',
+                    //     'success'
+                    // )
+                }
+            })
+
+
+
+
+            // if(confirm("Are U Suer?")){
+            //     e.target.parentElement.remove()
+            // }
+        })
+    })
+
+
+
+</script>
+
+</body>
+</html>

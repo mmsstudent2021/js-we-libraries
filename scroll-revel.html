@@ -15,15 +15,15 @@
     <div class="row min-vh-100  justify-content-center align-items-center">
         <div class="col-6">
             <div class="p-5 ">
-                <h1 class="content">Min Ga lar Par Byr</h1>
-                <p class="content">
+                <h1 class="fromLeft">Min Ga lar Par Byr</h1>
+                <p class="fromLeft">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, accusantium asperiores beatae, cumque earum error eveniet exercitationem hic magnam magni nemo nulla, pariatur placeat praesentium repellat vel veritatis voluptates! Similique!
                 </p>
             </div>
         </div>
         <div class="col-6">
             <div class="">
-                <img class="w-100 content" src="images/three.jpeg"  alt="">
+                <img class="w-100 fromRight" src="images/three.jpeg"  alt="">
             </div>
         </div>
     </div>
@@ -36,9 +36,13 @@
         <div class="col-6">
             <div class="p-5">
                 <h1 class="">Min Ga lar Par Byr</h1>
-                <p class="">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, accusantium asperiores beatae, cumque earum error eveniet exercitationem hic magnam magni nemo nulla, pariatur placeat praesentium repellat vel veritatis voluptates! Similique!
-                </p>
+                <ul class="list-group">
+                    <li class="list-group-item list">Apple</li>
+                    <li class="list-group-item list">Orange</li>
+                    <li class="list-group-item list">Mango</li>
+                    <li class="list-group-item list">Banana</li>
+                    <li class="list-group-item list">Coconet</li>
+                </ul>
             </div>
         </div>
 
@@ -80,13 +84,33 @@
 <script src="node_modules/scrollreveal/dist/scrollreveal.min.js"></script>
 <script>
 
-    ScrollReveal().reveal(".content",{
-        origin : "bottom",
+    ScrollReveal().reveal(".fromRight",{
+        origin : "right",
         distance: "150px",
         duration : 1000,
         interval : 500,
         reset : true
     })
+
+    ScrollReveal().reveal(".fromLeft",{
+        origin : "left",
+        distance: "150px",
+        duration : 1000,
+        interval : 500,
+        reset : true
+    })
+
+    ScrollReveal().reveal(".list",{
+        origin : "bottom",
+        distance: "30px",
+        duration : 500,
+        interval : 200,
+        // reset : true
+    })
+
+
+
+
 
 </script>
 </body>
